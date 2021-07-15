@@ -1,28 +1,9 @@
-class Producto {
-  constructor(id, nombre, precio, imagen) {
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.imagen = imagen;
-  }
-}
-
-let carrito = [];
-
-let productos = [
-  new Producto(1, "Mouse gamer", 8000, "./img/mouse.jpeg"),
-  new Producto(2, "iMac", 250000, "./img/imac.jpeg"),
-  new Producto(3, "Joystick PS4", 9000, "./img/joystick.jpeg"),
-  new Producto(4, "Auricular Sony", 14000, "./img/auricular.jpeg"),
-  new Producto(5, "Notebook Gamer", 170000, "./img/laptop.jpeg"),
-];
-
 function cargarProductos() {
   let divProductos = document.getElementById("productos");
   productos.forEach((prod) => {
     let div = document.createElement("div");
-    div.className = "column";
-    let html = `<div class="card" style="width: 18rem">
+    div.className = "col";
+    let html = `<div class="card text-white mb-3 border-warning" style="width: 18rem">
                   <img
                     src=${prod.imagen}
                     class="card-img-top"
@@ -31,7 +12,7 @@ function cargarProductos() {
                   <div class="card-body" id=${prod.id}>
                     <h5 class="card-title">${prod.nombre}</h5>
                     <p class="card-text">$ ${prod.precio}</p>
-                    <a class="btn btn-dark btnAgregar">Agregar</a>
+                    <a class="btn btn-warning btnAgregar">Agregar</a>
                   </div>
                 </div>`;
     div.innerHTML = html;
@@ -39,36 +20,41 @@ function cargarProductos() {
   });
 }
 
-//
-
 cargarProductos();
-
-const botonesAgregar = document.querySelectorAll(".btnAgregar");
-botonesAgregar.forEach((boton) => {
-  boton.addEventListener("click", function (e) {
-    const prod = productos.find((p) => p.id == e.target.parentNode.id);
-    carrito.push(prod);
-    recargarCarrito();
-  });
-});
+recargarCarrito();
 
 function recargarCarrito() {
+  refrescarCarrito();
+
   let totalCompra = 0;
   let htmlProd = "";
-  carrito.forEach((prod) => {
-    totalCompra += prod.precio;
-    htmlProd += `<li class="list-group-item d-flex justify-content-between lh-sm">
+  carrito.forEach((prodCarrito) => {
+    let prod = prodCarrito.producto;
+    totalCompra += prod.precio * prodCarrito.cantidad;
+    htmlProd += `<li class="list-group-item d-flex justify-content-between align-items-center">
                   <div>
                     <h6 class="my-0">${prod.nombre}</h6>
+                  <small class="text">Cantidad: ${prodCarrito.cantidad}</small>
                   </div>
-                  <span class="text-muted">$ ${prod.precio}</span>
+                  <span class="text-warning">$ ${
+                    prod.precio * prodCarrito.cantidad
+                  }</span>
                 </li>`;
   });
 
   htmlProd += `<li class="list-group-item d-flex justify-content-between">
                 <span>Total</span>
-                <strong>$ ${totalCompra}</strong>
+                <strong class="text-warning">$ ${totalCompra}</strong>
               </li>`;
   const productosCarrito = document.getElementById("productosCarrito");
   productosCarrito.innerHTML = htmlProd;
 }
+
+const botonesAgregar = document.querySelectorAll(".btnAgregar");
+botonesAgregar.forEach((boton) => {
+  boton.addEventListener("click", function (e) {
+    const prod = productos.find((p) => p.id == e.target.parentNode.id);
+    agregarAlCarrito(carrito, prod);
+    recargarCarrito();
+  });
+});

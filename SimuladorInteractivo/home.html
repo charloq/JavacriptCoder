@@ -1,67 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container py-4">
-    <div class="h-100 p-5 bg-light border rounded-3">
-      <form>
-        
-        <!--<div class="card shadow-sm">
-          <div class="card-body">
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" />
-            </div>
-            <div class="mb-3">
-              <label for="apellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="apellido" />
-            </div>
-          </div>
-        </div>-->
-          
-        <div class="album py-5 bg-light">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="productos">
-            
-          </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+            />
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="./img/logo.png" alt="" >
+            <h2>Gamers Rising</h2>
+            <p class="lead">Lo que necesita un gamer</p>
         </div>
+        <div class="container px-4">
+            <div class="p-3 bg-light border rounded-3">
+                <form>
+                    <div class="row">
+                        <!-- Productos -->  
+                        <div class="col-9">
+                            <div class="album py-5 bg-light">
+                                <div class="row" id="productos">
 
-        <div class="col-md-5 col-lg-4 order-md-last">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">Carrito</span>
-          </h4>
-          <ul class="list-group mb-3" id="productosCarrito">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total</span>
-              <strong>$0</strong>
-            </li>
-          </ul>  
-        </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <button type="submit" class="btn btn-primary" onclick="">
-          Comprar
-        </button>
-      </div>
-      </form>
+                        <!-- Carrito -->  
+                        <div class="col-3 ">
+                            <div class="col order-md-last card bg-danger">
+                                <h3 class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text">Carrito</span>
+                                </h3>
+                                <ul class="list-group mb-3" id="productosCarrito">
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>Total</span>
+                                        <strong class="text-warning">$0</strong>
+                                    </li>
+                                </ul>  
+                            </div>
+                            <br>
+                            <div class="row justify-content-start">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-danger" onclick="">
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-outline-danger" onclick="limpiarCarrito(event)">
+                                        Limpiar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </form>
     </div>
+    <script src="./js/producto.js"></script>
+    <script src="./js/producto_carrito.js"></script>
     <script src="./js/funciones.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
     ></script>
-  </body>
+</body>
 </html>
