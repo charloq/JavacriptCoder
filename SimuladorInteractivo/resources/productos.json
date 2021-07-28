@@ -1,0 +1,38 @@
+[
+    {
+       "id":1,
+       "nombre":"Mouse gamer",
+       "precio":8000,
+       "imagen":"./img/mouse.jpeg"
+    },
+    {
+       "id":2,
+       "nombre":"iMac",
+       "precio":250000,
+       "imagen":"./img/imac.jpeg"
+    },
+    {
+       "id":3,
+       "nombre":"Joystick PS4",
+       "precio":9000,
+       "imagen":"./img/joystick.jpeg"
+    },
+    {
+       "id":4,
+       "nombre":"Auricular Sony",
+       "precio":14000,
+       "imagen":"./img/auricular.jpeg"
+    },
+    {
+       "id":5,
+       "nombre":"Notebook Gamer",
+       "precio":170000,
+       "imagen":"./img/laptop.jpeg"
+    },
+    {
+       "id":6,
+       "nombre":"Teclado Gamer",
+       "precio":170000,
+       "imagen":"./img/teclado.jpg"
+    }
+ ]
