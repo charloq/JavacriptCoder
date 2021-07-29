@@ -66,6 +66,5 @@ function recargarCarrito() {
                 <span>Total</span>
                 <strong class="text-warning">$ ${totalCompra}</strong>
               </li>`;
-  const productosCarrito = document.getElementById("productosCarrito");
-  productosCarrito.innerHTML = htmlProd;
+  $("#productosCarrito").html(htmlProd);
 }

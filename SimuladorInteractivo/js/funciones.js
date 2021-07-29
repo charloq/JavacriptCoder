@@ -4,13 +4,8 @@
 $(document).ready(() => {
   cargarProductos();
   recargarCarrito();
-
-  // Evento click de los botones Agregar
-  $(".btnAgregar").click((e) => {
-    const prod = productos.find((p) => p.id == e.target.parentNode.id);
-    agregarAlCarrito(carrito, prod);
-    recargarCarrito();
-  });
+  $("#form-productos").hide();
+  $("#form-productos").show(1000);
 
   // Evento click del botón limpiar
   $("#btn-limpiar").click(() => {
