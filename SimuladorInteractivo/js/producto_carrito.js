@@ -68,3 +68,11 @@ function recargarCarrito() {
               </li>`;
   $("#productosCarrito").html(htmlProd);
 }
+
+/**
+ * Vacia el carrito y el cache del mismo
+ */
+function vaciarCarrito() {
+  carrito = [];
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
