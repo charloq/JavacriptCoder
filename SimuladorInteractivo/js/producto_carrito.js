@@ -33,12 +33,12 @@ let carrito = [];
 function refrescarCarrito() {
   const carritoLocal = JSON.parse(localStorage.getItem("carrito"));
   const carritoCopia = [];
-
-  carritoLocal.forEach((pl) => {
-    carritoCopia.push(new ProductoCarrito(pl.producto, pl.cantidad));
-  });
-  carrito = carritoCopia;
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+  if (carritoLocal) {
+    carritoLocal.forEach((pl) => {
+      carritoCopia.push(new ProductoCarrito(pl.producto, pl.cantidad));
+    });
+  }
+  localStorage.setItem("carrito", JSON.stringify(carritoCopia));
 }
 
 /**
